@@ -30,10 +30,10 @@ const Projects = () => {
     },
     {
       projectPhoto: eco,
-      projectName: "online shopping-redux",
-      projectDesc: "An online shopping application built with Redux for state management.",
-      projectGithub: "https://github.com/saiakulas/ecommerce-store.git"
-    },
+      projectName: "Foreign University Fee Predictor",
+      projectDesc: "A fee prediction platform integrating an AI model using Flask as the backend and React with Tailwind for the frontend.",
+      projectGithub: "https://github.com/saiakulas/Abroad-ai"
+    },    
     {
       projectPhoto: quiz,
       projectName: "quizo",
