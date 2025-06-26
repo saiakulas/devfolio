@@ -11,19 +11,21 @@ import Projects from './Components/projects';
 const App = () => {
   return (
     <ThemeProvider>
-      <Navigation />
-      <div className={`min-h-screen transition-all duration-500 ${
-        'bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-900 ' + 
-        'dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-slate-50'
-      }`}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-           <Route path="/skills" element={<Skills />} />
-          <Route path="/projects" element={<Projects />} />
-        </Routes>
+      <div className="w-full overflow-x-hidden">
+        <Navigation />
+        <div className={`min-h-screen w-full transition-all duration-500 ${
+          'bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-900 ' + 
+          'dark:bg-gradient-to-br dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 dark:text-slate-50'
+        }`}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </ThemeProvider>
   );
 };
