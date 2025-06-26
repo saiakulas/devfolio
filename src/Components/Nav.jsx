@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 
 const Navigation = () => {
@@ -8,7 +9,12 @@ const Navigation = () => {
   const isDark = theme === 'dark';
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems = ['Home', 'About', 'Skills', 'Projects'];
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Skills', path: '/skills' },
+    { name: 'Projects', path: '/projects' }
+  ];
 
   return (
     <nav className={`sticky top-0 z-50 w-full py-6 backdrop-blur-sm transition-colors duration-500 ${
@@ -27,7 +33,7 @@ const Navigation = () => {
               : 'bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600'
           }`}
         >
-          Sai Akula
+          <Link to="/">Sai Akula</Link>
         </motion.h1>
         
         <div className="flex items-center space-x-4 md:space-x-6">
@@ -38,17 +44,17 @@ const Navigation = () => {
             className="hidden md:flex space-x-8"
           >
             {navItems.map((item) => (
-              <li key={item}>
-                <a 
-                  href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+              <li key={item.name}>
+                <Link 
+                  to={item.path}
                   className={`font-medium transition-all duration-300 hover:scale-105 px-3 py-2 ${
                     isDark 
                       ? 'text-slate-300 hover:text-blue-400' 
                       : 'text-slate-700 hover:text-blue-600'
                   }`}
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </Link>
               </li>
             ))}
           </motion.ul>
@@ -107,9 +113,9 @@ const Navigation = () => {
         >
           <ul className="flex flex-col space-y-4 p-6">
             {navItems.map((item) => (
-              <li key={item}>
-                <a 
-                  href={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+              <li key={item.name}>
+                <Link 
+                  to={item.path}
                   className={`block font-medium transition-all duration-300 py-3 px-4 rounded-lg ${
                     isDark 
                       ? 'text-slate-300 hover:bg-slate-700 hover:text-blue-400' 
@@ -117,8 +123,8 @@ const Navigation = () => {
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </Link>
               </li>
             ))}
             <li>
