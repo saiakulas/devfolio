@@ -242,12 +242,6 @@ const Footer = () => {
                 href: 'https://linkedin.com/in/yourusername' 
               },
               { 
-                name: 'Twitter', 
-                icon: FaTwitter, 
-                color: isDark ? 'text-sky-400 hover:text-sky-300' : 'text-sky-600 hover:text-sky-700', 
-                href: 'https://twitter.com/yourusername' 
-              },
-              { 
                 name: 'Email', 
                 icon: FiMail, 
                 color: isDark ? 'text-pink-400 hover:text-pink-300' : 'text-pink-600 hover:text-pink-700', 
