@@ -55,7 +55,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className={`w-full py-16 transition-all duration-500 ${
+    <footer id="footer"  className={`w-full py-16 transition-all duration-500 ${
       isDark 
         ? 'bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900' 
         : 'bg-white/80 border-t border-slate-200'

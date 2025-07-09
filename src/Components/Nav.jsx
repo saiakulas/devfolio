@@ -16,6 +16,14 @@ const Navigation = () => {
     { name: 'Projects', path: '/projects' }
   ];
 
+  // Function to scroll to footer
+  const scrollToFooter = () => {
+    const footer = document.getElementById('footer');
+    if (footer) {
+      footer.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <nav className={`sticky top-0 z-50 w-full py-6 backdrop-blur-sm transition-colors duration-500 ${
       isDark 
@@ -72,10 +80,12 @@ const Navigation = () => {
           >
             {isDark ? <FiSun size={20} /> : <FiMoon size={20} />}
           </motion.button>
-          
+
+          {/* Desktop Contact Me Button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={scrollToFooter}
             className={`hidden md:block px-8 py-3 rounded-xl font-semibold text-white shadow-lg hover:shadow-xl transition-all duration-300 ${
               isDark 
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700' 
@@ -85,7 +95,7 @@ const Navigation = () => {
             Contact Me
           </motion.button>
 
-          {/* Mobile menu button */}
+          {/* Mobile menu toggle button */}
           <button
             className="md:hidden p-2 rounded-lg focus:outline-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -128,7 +138,12 @@ const Navigation = () => {
               </li>
             ))}
             <li>
+              {/* Mobile Contact Me Button */}
               <button
+                onClick={() => {
+                  scrollToFooter();
+                  setMobileMenuOpen(false);
+                }}
                 className={`w-full py-3 px-4 rounded-xl font-semibold text-white shadow-lg transition-all duration-300 ${
                   isDark 
                     ? 'bg-gradient-to-r from-blue-500 to-purple-600' 

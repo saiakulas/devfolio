@@ -254,7 +254,7 @@ const About = () => {
 
         
 
-        {/* CTA Section */}
+      {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -282,6 +282,12 @@ const About = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const footer = document.querySelector('footer');
+                if (footer) {
+                  footer.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className={`flex items-center px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 ${
                 isDark 
                   ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700' 
@@ -292,7 +298,10 @@ const About = () => {
               Get In Touch
             </motion.button>
             
-            <motion.button
+            <motion.a
+              href="https://github.com/saiakulas" // Replace with your actual portfolio/GitHub link
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className={`flex items-center px-8 py-4 rounded-xl font-semibold border transition-all duration-300 ${
@@ -303,7 +312,7 @@ const About = () => {
             >
               <FiGithub className="mr-2" />
               View Portfolio
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>
